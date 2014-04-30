@@ -22,18 +22,18 @@ $(function() {
     });
 });
 
-var weAreAt = new google.maps.LatLng(37.4753168, 126.9884097);
-
-var myOptions = {
-    zoom: 17,
-    center: weAreAt,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-
-var map = new google.maps.Map(document.getElementById('map'), myOptions);
-new google.maps.Marker({
-    position: weAreAt,
-    map: map,
-    title: 'The Whale Games'
-});
+//var weAreAt = new google.maps.LatLng(37.4753168, 126.9884097);
+//
+//var myOptions = {
+//    zoom: 17,
+//    center: weAreAt,
+//    mapTypeId: google.maps.MapTypeId.ROADMAP
+//};
+//
+//var map = new google.maps.Map(document.getElementById('map'), myOptions);
+//new google.maps.Marker({
+//    position: weAreAt,
+//    map: map,
+//    title: 'The Whale Games'
+//});
 
