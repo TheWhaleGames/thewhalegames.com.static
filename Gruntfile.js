@@ -1,4 +1,4 @@
-// Generated on 2014-04-29 using generator-webapp 0.4.9
+// Generated on 2014-04-30 using generator-webapp 0.4.9
 'use strict';
 
 // # Globbing
@@ -46,6 +46,10 @@ module.exports = function (grunt) {
             },
             gruntfile: {
                 files: ['Gruntfile.js']
+            },
+            sass: {
+                files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+                tasks: ['sass:server', 'autoprefixer']
             },
             styles: {
                 files: ['<%= config.app %>/styles/{,*/}*.css'],
@@ -144,6 +148,33 @@ module.exports = function (grunt) {
             }
         },
 
+        // Compiles Sass to CSS and generates necessary files if requested
+        sass: {
+            options: {
+                includePaths: [
+                    'bower_components'
+                ]
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.app %>/styles',
+                    src: ['*.scss'],
+                    dest: '.tmp/styles',
+                    ext: '.css'
+                }]
+            },
+            server: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.app %>/styles',
+                    src: ['*.scss'],
+                    dest: '.tmp/styles',
+                    ext: '.css'
+                }]
+            }
+        },
+
         // Add vendor prefixed styles
         autoprefixer: {
             options: {
@@ -163,7 +194,10 @@ module.exports = function (grunt) {
         bowerInstall: {
             app: {
                 src: ['<%= config.app %>/index.html'],
-                exclude: ['bower_components/bootstrap/dist/js/bootstrap.js']
+                exclude: ['bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js']
+            },
+            sass: {
+                src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}']
             }
         },
 
@@ -289,8 +323,8 @@ module.exports = function (grunt) {
                 }, {
                     expand: true,
                     dot: true,
-                    cwd: 'bower_components/bootstrap/dist',
-                    src: ['fonts/*.*'],
+                    cwd: '.',
+                    src: ['bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*'],
                     dest: '<%= config.dist %>'
                 }]
             },
@@ -306,12 +340,14 @@ module.exports = function (grunt) {
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
+                'sass:server',
                 'copy:styles'
             ],
             test: [
                 'copy:styles'
             ],
             dist: [
+                'sass',
                 'copy:styles',
                 'imagemin',
                 'svgmin'

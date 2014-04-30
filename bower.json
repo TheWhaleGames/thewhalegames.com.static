@@ -1,9 +1,10 @@
 {
-  "name": "test",
+  "name": "yo-test",
   "private": true,
   "dependencies": {
-    "bootstrap": "~3.0.3",
-    "jquery": "~1.11.0"
+    "bootstrap-sass-official": "~3.1.0",
+    "jquery": "~1.11.0",
+    "font-awesome": "~4.0.3"
   },
   "devDependencies": {}
 }
