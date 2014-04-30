@@ -1,7 +1,8 @@
 /**
  * sass bootstrap
  */
-$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+// $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+$icon-font-path: "../fonts/";
 // bower:scss
 @import "../../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
@@ -10,9 +11,11 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
  * font awesome
  */
 
-$fa-font-path: "/bower_components/font-awesome/fonts";
+// $fa-font-path: "/bower_components/font-awesome/fonts";
+$fa-font-path: "../fonts";
+// bower:scss
 @import "../../bower_components/font-awesome/scss/font-awesome";
-
+// endbower
 
 // Variables
 
@@ -28,7 +31,7 @@ $font-stack: Helvetica, sans-serif;
 body {
   width: 100%;
   height: 100%;
-  font: $font-stack;
+  font: 100% $font-stack;
   color: $dark;
   background-color: $light;
 }

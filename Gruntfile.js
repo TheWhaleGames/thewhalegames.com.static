@@ -82,6 +82,8 @@ module.exports = function (grunt) {
                         return [
                             connect.static('.tmp'),
                             connect().use('/bower_components', connect.static('./bower_components')),
+                            connect().use('/fonts', connect.static('./bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap')),
+                            connect().use('/fonts', connect.static('./bower_components/font-awesome/fonts')),
                             connect.static(config.app)
                         ];
                     }
@@ -96,6 +98,8 @@ module.exports = function (grunt) {
                             connect.static('.tmp'),
                             connect.static('test'),
                             connect().use('/bower_components', connect.static('./bower_components')),
+                            connect().use('/fonts', connect.static('./bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap')),
+                            connect().use('/fonts', connect.static('./bower_components/font-awesome/fonts')),
                             connect.static(config.app)
                         ];
                     }
@@ -323,9 +327,13 @@ module.exports = function (grunt) {
                 }, {
                     expand: true,
                     dot: true,
+                    flatten: true,
                     cwd: '.',
-                    src: ['bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*'],
-                    dest: '<%= config.dist %>'
+                    dest: '<%= config.dist %>/fonts',
+                    src: [
+                        'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*',
+                        'bower_components/font-awesome/fonts/*.*'
+                    ]
                 }]
             },
             styles: {
