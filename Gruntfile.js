@@ -27,6 +27,25 @@ module.exports = function (grunt) {
         // Project settings
         config: config,
 
+        // deploy
+        secret: grunt.file.readJSON('./secret.json'),
+        sftp: {
+            deploy: {
+                files: {
+                    "./": "<%= config.dist %>/**"
+                },
+                options: {
+                    path: '<%= secret.deployPath %>',
+                    srcBasePath: "<%= config.dist %>/",
+                    host: '<%= secret.host %>',
+                    port: '<%= secret.port %>',
+                    username: '<%= secret.username %>',
+                    password: '<%= secret.password %>',
+                    showProgress: true
+                }
+            }
+        },
+
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             bower: {
@@ -410,6 +429,11 @@ module.exports = function (grunt) {
         'rev',
         'usemin',
         'htmlmin'
+    ]);
+
+    grunt.registerTask('deploy', [
+        'build',
+        'sftp:deploy'
     ]);
 
     grunt.registerTask('default', [
