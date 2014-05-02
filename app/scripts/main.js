@@ -1,4 +1,4 @@
-/* global google */
+
 
 'use strict';
 
@@ -13,6 +13,14 @@ $(window).scroll(function() {
 
 //jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
+    var webFontScript = document.createElement('script');
+    webFontScript.src = '//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js';
+    webFontScript.type = 'text/javascript';
+    webFontScript.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(webFontScript, s);
+
+
     $('.page-scroll a').bind('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
@@ -21,6 +29,7 @@ $(function() {
         event.preventDefault();
     });
 });
+
 
 //var weAreAt = new google.maps.LatLng(37.4753168, 126.9884097);
 //

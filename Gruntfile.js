@@ -32,11 +32,11 @@ module.exports = function (grunt) {
         sftp: {
             deploy: {
                 files: {
-                    "./": "<%= config.dist %>/**"
+                    './': '<%= config.dist %>/**'
                 },
                 options: {
                     path: '<%= secret.deployPath %>',
-                    srcBasePath: "<%= config.dist %>/",
+                    srcBasePath: '<%= config.dist %>/',
                     host: '<%= secret.host %>',
                     port: '<%= secret.port %>',
                     username: '<%= secret.username %>',

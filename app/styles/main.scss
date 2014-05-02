@@ -25,9 +25,10 @@ $ci-primary: #C4212C;
 $ci-medium: #EB8024;
 $ci-light: #FCB720;
 
-$font-stack: Helvetica, sans-serif;
+$font-stack: "Nanum Gothic", Helvetica, sans-serif;
 
 body {
+  font-family: $font-stack;
   height: 100%;
   color: $dark;
   background-color: $light;
@@ -60,9 +61,8 @@ a {
 .navbar {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  text-transform: uppercase;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: $dark;
+  text-transform: uppercase;
 }
 
 .navbar-brand {
@@ -82,14 +82,14 @@ a {
         -moz-transition: background 0.3s ease-in-out;
         transition: background 0.3s ease-in-out;
         :hover, :focus {
-          outline: none;
-          background-color: rgba(255, 255, 255, 0.2);
+          // outline: none;
+          // background-color: rgba(255, 255, 255, 0.2);
         }
       }
     }
     li.active {
       outline: none;
-      background-color: rgba(255, 255, 255, 0.2);
+      // background-color: rgba(255, 255, 255, 0.2);
     }
   }
 }
