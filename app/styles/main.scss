@@ -25,6 +25,8 @@ $ci-primary: #C4212C;
 $ci-medium: #EB8024;
 $ci-light: #FCB720;
 
+$screen-break-small: 767px;
+
 $font-stack: "Nanum Gothic", Helvetica, sans-serif;
 
 body {
@@ -39,12 +41,12 @@ html {
 
 p {
   margin: 0 0 25px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
-  @media (min-width: 767px) {
+  @media (min-width: $screen-break-small) {
     margin: 0 0 35px;
     font-size: 20px;
-    line-height: 1.6;
+    line-height: 1.8;
   }
 }
 
@@ -70,6 +72,15 @@ a {
 
   :focus {
     outline: none;
+  }
+}
+
+.ci {
+  padding-top: 70px;
+  padding-bottom: 80px;
+  @media screen and (max-width: $screen-break-small) {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 
@@ -103,7 +114,7 @@ a {
   }
 }
 
-@media (min-width: 767px) {
+@media (min-width: $screen-break-small) {
   .navbar {
     padding: 20px 0;
     border-bottom: none;
@@ -137,7 +148,7 @@ a {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  @media (min-width: 767px) {
+  @media (min-width: $screen-break-small) {
     height: 100%;
     padding: 0;
   }
@@ -150,7 +161,7 @@ a {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  @media (min-width: 767px) {
+  @media (min-width: $screen-break-small) {
     height: 100%;
     padding: 0;
   }
@@ -169,7 +180,7 @@ a {
   background-size: contain;
   -o-background-size: contain;
   background-color: $ci-primary;
-  @media (min-width: 767px) {
+  @media (min-width: $screen-break-small) {
 
     height: 100%;
     padding: 0;
@@ -185,20 +196,7 @@ a {
   display: table-cell;
   vertical-align: middle;
 }
-.brand-heading {
-  font-size: 40px;
-}
-.intro-text {
-  font-size: 18px;
-}
-@media (min-width: 767px) {
-  .brand-heading {
-    font-size: 100px;
-  }
-  .intro-text {
-    font-size: 25px;
-  }
-}
+
 .btn-circle {
   width: 120px;
   height: 120px;
