@@ -76,12 +76,25 @@ body {
 
 p {
   margin: 0 0 25px;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
   @media (min-width: $screen-break-small) {
     margin: 0 0 35px;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 1.8;
+  }
+}
+
+.content-section {
+  @include screen-bigger-than(767) {
+    padding-top: 70px;
+  }
+}
+
+#recruit li {
+  font-size: 16px;
+  @media (min-width: $screen-break-small) {
+    font-size: 20px;
   }
 }
 
@@ -128,8 +141,8 @@ a {
 
   @include screen-bigger-than(767) {
     padding: 0;
-    background-color: rgba(255,255,255,0.25);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(240,240,240,0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     a {
       color: $dark;
     }
@@ -141,11 +154,23 @@ a {
 
 .ci {
   padding-top: 70px;
-  padding-bottom: 80px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  padding-left: 60px;
+  padding-right: 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
 
   @include screen-smaller-than(767) {
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+}
+
+.ci-intro {
+  p {
+    font-size: 20px;
   }
 }
 
@@ -160,9 +185,9 @@ a {
 
 .contact {
   @include full-contents;
-  color: $light;
-  background: url("../images/back_whale.png") bottom no-repeat;
-  background-color: $ci-primary;
+  color: $dark;
+  // background: url("../images/back_whale.png") bottom no-repeat;
+  // background-color: $ci-primary;
   @include background-size(contain);
 }
 
@@ -176,6 +201,12 @@ a {
   vertical-align: middle;
 }
 
+footer {
+  padding-top: 20px;
+  margin-bottom: 20px;
+  border-top: 2px solid rgba(10, 10, 10, 0.9)
+}
+
 .btn {
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease-in-out;
@@ -183,16 +214,15 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
-
 .btn-circle {
   width: 120px;
   height: 120px;
   margin-top: 20px;
   padding: 7px 16px;
-  border: 2px solid $light;
+  border: 2px solid $dark;
   border-radius: 60px;
   font-size: 65px;
-  color: $light;
+  color: $dark;
   background: transparent;
   -webkit-transition: background 0.3s ease-in-out;
   -moz-transition: background 0.3s ease-in-out;
@@ -201,8 +231,8 @@ a {
 .btn-circle:hover,
 .btn-circle:focus {
   outline: none;
-  color: $light;
-  background: rgba(255, 255, 255, 0.1);
+  color: $dark;
+  background: rgba(245, 245, 245, 1);
 }
 
 #map {
