@@ -9,14 +9,14 @@ $icon-font-path: "../fonts/";
 /**
  * font awesome
  */
-
 $fa-font-path: "../fonts";
 // bower:scss
 @import "../../bower_components/font-awesome/scss/font-awesome";
 // endbower
 
-// Variables
-
+/**
+ * Variables
+ */
 $primary: #28c3ab;
 $dark: #0d1323;
 $light: #fff;
@@ -29,14 +29,49 @@ $screen-break-small: 767px;
 
 $font-stack: "Nanum Gothic", Helvetica, sans-serif;
 
+/**
+ * Helper mixins
+ */
+
+@mixin screen-bigger-than($breakpoint) {
+  @media only (min-width: $breakpoint + px) { @content; }
+}
+
+@mixin screen-smaller-than($breakpoint) {
+  @media only screen and (max-width: $breakpoint + px) { @content; }
+}
+
+@mixin full-contents {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  text-align: center;
+  @include screen-bigger-than(767) {
+     height: 100%;
+     padding: 0;
+  }
+}
+
+@mixin background-size($size) {
+  -webkit-background-size: $size;
+  -moz-background-size: $size;
+  background-size: $size;
+  -o-background-size: $size;
+}
+
+/**
+ * Styles
+ */
+html {
+  height: 100%;
+}
+
 body {
   font-family: $font-stack;
   height: 100%;
   color: $dark;
   background-color: $light;
-}
-html {
-  height: 100%;
 }
 
 p {
@@ -57,65 +92,16 @@ a {
   transition: all 0.2s ease-in-out;
 }
 
-.light {
-  font-weight: 400;
-}
 .navbar {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   background-color: $dark;
   text-transform: uppercase;
-}
-
-.navbar-brand {
-  font-weight: 700;
-
-  :focus {
-    outline: none;
+  a {
+    color: $light;
   }
-}
 
-.ci {
-  padding-top: 70px;
-  padding-bottom: 80px;
-  @media screen and (max-width: $screen-break-small) {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-}
-
-.navbar-custom a {
-  color: $light;
-  .nav {
-    li {
-      a {
-        -webkit-transition: background 0.3s ease-in-out;
-        -moz-transition: background 0.3s ease-in-out;
-        transition: background 0.3s ease-in-out;
-        :hover, :focus {
-          // outline: none;
-          // background-color: rgba(255, 255, 255, 0.2);
-        }
-      }
-    }
-    li.active {
-      outline: none;
-      // background-color: rgba(255, 255, 255, 0.2);
-    }
-  }
-}
-
-.navbar-toggle {
-  padding: 4px 6px;
-  font-size: 16px;
-  color: $light;
-  :focus, :active {
-    outline: none;
-  }
-}
-
-@media (min-width: $screen-break-small) {
-  .navbar {
+  @include screen-bigger-than(767) {
     padding: 20px 0;
     border-bottom: none;
     letter-spacing: 1px;
@@ -124,67 +110,60 @@ a {
     -moz-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
     transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
   }
-  .top-nav-collapse {
+
+  .navbar-toggle {
+    padding: 4px 6px;
+    font-size: 16px;
+    color: $light;
+    :focus, :active {
+      outline: none;
+    }
+  }
+}
+
+// TODO: mixin function으로 처리할것
+
+.top-nav-collapse {
+
+
+  @include screen-bigger-than(767) {
     padding: 0;
-    background-color: rgba(255,255,255,0.95);
+    background-color: rgba(255,255,255,0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     a {
       color: $dark;
     }
-
+    // li:hover, li:focus {
+    //   background-color: red;
+    // }
   }
-  .navbar-custom.top-nav-collapse {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ci {
+  padding-top: 70px;
+  padding-bottom: 80px;
+
+  @include screen-smaller-than(767) {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 
-@mixin full-contents {
-  display: table;
-  width: 100%;
-  height: auto;
-  padding: 100px 0;
-  text-align: center;
-  color: $light;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  @media (min-width: $screen-break-small) {
-    height: 100%;
-    padding: 0;
-  }
-}
+
 
 .intro {
   @include full-contents;
+  color: $light;
   background: url("../images/bg_blue.png") no-repeat bottom center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  @media (min-width: $screen-break-small) {
-    height: 100%;
-    padding: 0;
-  }
+  @include background-size(cover);
 }
 
 .contact {
-  display: table;
-  width: 100%;
-  height: auto;
-  padding: 100px 0;
-  text-align: center;
+  @include full-contents;
   color: $light;
   background: url("../images/back_whale.png") bottom no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: contain;
-  background-size: contain;
-  -o-background-size: contain;
   background-color: $ci-primary;
-  @media (min-width: $screen-break-small) {
-
-    height: 100%;
-    padding: 0;
-  }
+  @include background-size(contain);
 }
 
 .contact-body {
@@ -196,6 +175,14 @@ a {
   display: table-cell;
   vertical-align: middle;
 }
+
+.btn {
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
 
 .btn-circle {
   width: 120px;
@@ -217,44 +204,10 @@ a {
   color: $light;
   background: rgba(255, 255, 255, 0.1);
 }
-.content-section {
-  padding-top: 0px;
-}
-.about-section {
-  width: 100%;
-  padding: 50px 0;
-  background: url("../images/back_whale.png") bottom no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-}
-.download-section {
-  width: 100%;
-  padding: 50px 0;
-  color: $dark;
-}
 
 #map {
   width: 100%;
   height: 200px;
   margin-top: 100px;
 }
-@media (min-width: 767px) {
-  .content-section {
-    padding-top: 250px;
-  }
-  .download-section {
-    padding: 100px 0;
-  }
-  #map {
-    height: 400px;
-    margin-top: 250px;
-  }
-}
-.btn {
-  text-transform: uppercase;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
+
