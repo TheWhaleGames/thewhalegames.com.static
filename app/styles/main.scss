@@ -28,6 +28,7 @@ $ci-light: #FCB720;
 $screen-break-small: 767px;
 
 $font-stack: "Nanum Gothic", Helvetica, sans-serif;
+$font-stack-doris: "Dosis", sans-serif;
 
 /**
  * Helper mixins
@@ -63,6 +64,9 @@ $font-stack: "Nanum Gothic", Helvetica, sans-serif;
 /**
  * Styles
  */
+h1{
+  font-family: $font-stack-doris;
+}
 html {
   height: 100%;
 }
@@ -103,7 +107,8 @@ p {
 }
 
 a {
-  color: $ci-primary;
+  color: $dark;
+  text-decoration: underline;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -115,6 +120,7 @@ a {
   text-transform: uppercase;
   a {
     color: $light;
+    text-decoration: none;
   }
 
   @include screen-bigger-than(767) {
@@ -136,6 +142,8 @@ a {
     }
   }
 }
+
+
 
 .top-nav-collapse {
   @include screen-bigger-than(767) {
