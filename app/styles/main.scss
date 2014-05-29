@@ -105,7 +105,7 @@ p {
 
 a {
   color: $dark;
-  text-decoration: underline;
+//  text-decoration: underline;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -151,55 +151,56 @@ a {
   }
 }
 
-.ci {
-  padding-top: 70px;
-  padding-bottom: 50px;
-  margin-bottom: 50px;
-  padding-left: 60px;
-  padding-right: 60px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
 
-  @include screen-smaller-than(767) {
-    padding-top: 10px;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-  }
-}
-
-.ci-intro {
-  p {
-    font-size: 22px;
-
-    @include screen-smaller-than(767) {
-      font-size: 18px;
-    }
-  }
-}
 
 .intro {
-  @include full-contents;
   color: $light;
   background: url("../images/bg_blue.png") no-repeat bottom center scroll;
   @include background-size(cover);
 }
 
-.contact {
+.full-page {
   @include full-contents;
-  color: $dark;
-  @include background-size(contain);
 }
 
-.contact-body {
+@mixin full-page-center-contents {
   display: table-cell;
   vertical-align: middle;
+}
+
+.vertical-center-content {
+  @include full-page-center-contents;
 }
 
 .intro-body {
-  display: table-cell;
-  vertical-align: middle;
+  @include full-page-center-contents;
+  .ci {
+    padding-top: 70px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+
+    @include screen-smaller-than(767) {
+      padding-top: 10px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .ci-intro {
+    p {
+      font-size: 22px;
+
+      @include screen-smaller-than(767) {
+        font-size: 18px;
+      }
+    }
+  }
 }
 
-footer {
+footer.company {
   padding-top: 20px;
   margin-bottom: 20px;
   border-top: 2px solid rgba(10, 10, 10, 0.9)
