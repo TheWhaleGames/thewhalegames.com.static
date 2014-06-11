@@ -5,7 +5,8 @@
     "bootstrap-sass-official": "~3.1.0",
     "jquery": "~1.11.0",
     "font-awesome": "~4.0.3",
-    "scrollReveal.js": "~0.1.2"
+    "scrollReveal.js": "~0.1.2",
+    "flare": "~1.0.0"
   },
   "devDependencies": {}
 }
